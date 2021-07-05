@@ -462,6 +462,7 @@ body {
 }
 
 .content .header-control__sort .dropdown-menu {
+  border-radius: 0.3rem;
   height: 39px;
   width: 10rem;
   outline: none;
@@ -475,11 +476,12 @@ body {
 }
 
 .content .main {
+  overflow: hidden;
   margin-top: 3rem;
 }
 
 .content .main .work-list {
-  height: calc(100vh - 346px);
+  max-height: calc(100vh - 354px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -634,13 +636,13 @@ max-width = width - 1
 
 @media screen and (max-width: 889px) {
   .content .main .work-list {
-    height: calc(100vh - 366px);
+    max-height: calc(100vh - 374px);
   }
 }
 
 @media screen and (max-width: 869px) {
   .content .main .work-list {
-    height: calc(100vh - 386px);
+    max-height: calc(100vh - 394px);
   }
 }
 
@@ -662,7 +664,19 @@ max-width = width - 1
     height: 100% !important;
   }
   .content .main .work-list {
-    height: calc(100vh - 346px);
+    max-height: calc(100vh - 344px);
+  }
+}
+
+@media screen and (max-width: 539px) {
+  .content .main .work-list {
+    max-height: calc(100vh - 374px);
+  }
+}
+
+@media screen and (max-width: 519px) {
+  .content .main .work-list {
+    max-height: calc(100vh - 394px);
   }
 }
 
@@ -686,6 +700,9 @@ max-width = width - 1
   }
   .content .header-control__sort .dropdown button {
     width: 100%;
+  }
+  .content .main .work-list {
+    max-height: calc(100vh - 443px);
   }
 }
 /*# sourceMappingURL=App.css.map */

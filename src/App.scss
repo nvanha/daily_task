@@ -321,6 +321,7 @@ body {
             &__sort {
                 margin-left: 4rem;
                 .dropdown-menu {
+                    border-radius: 0.3rem;
                     height: 39px;
                     width: 10rem;
                     outline: none;
@@ -336,10 +337,11 @@ body {
         }
     }
     .main {
+        overflow: hidden;
         margin-top: 3rem;
         .work {
             &-list {
-                height: calc(100vh - 346px);
+                max-height: calc(100vh - 354px);
                 @include flex(flex-start, flex-start, wrap);
                 margin: 0 -1rem;
                 margin-top: -2rem;
@@ -476,7 +478,7 @@ max-width = width - 1
         .main {
             .work {
                 &-list {
-                    height: calc(100vh - 366px);
+                    max-height: calc(100vh - 374px);
                 }
             }
         }
@@ -488,7 +490,7 @@ max-width = width - 1
         .main {
             .work {
                 &-list {
-                    height: calc(100vh - 386px);
+                    max-height: calc(100vh - 394px);
                 }
             }
         }
@@ -516,7 +518,31 @@ max-width = width - 1
         .main {
             .work {
                 &-list {
-                    height: calc(100vh - 346px);
+                    max-height: calc(100vh - 344px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 539px) {
+    .content {
+        .main {
+            .work {
+                &-list {
+                    max-height: calc(100vh - 374px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 519px) {
+    .content {
+        .main {
+            .work {
+                &-list {
+                    max-height: calc(100vh - 394px);
                 }
             }
         }
@@ -543,6 +569,13 @@ max-width = width - 1
                             width: 100%;
                         }
                     }
+                }
+            }
+        }
+        .main {
+            .work {
+                &-list {
+                    max-height: calc(100vh - 443px);
                 }
             }
         }

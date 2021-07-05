@@ -8,7 +8,7 @@ class DashboardNav extends Component {
           <span>
             <i className="fas fa-play"></i>
           </span>
-          <a href="#">
+          <a role="button">
             <i className="fas fa-check"></i>Daily Task
           </a>
         </li>
@@ -16,7 +16,7 @@ class DashboardNav extends Component {
           <span>
             <i className="fas fa-play"></i>
           </span>
-          <a href="#">
+          <a role="button">
             <i className="fas fa-user-clock"></i>Personal
           </a>
         </li>
@@ -24,7 +24,7 @@ class DashboardNav extends Component {
           <span>
             <i className="fas fa-play"></i>
           </span>
-          <a href="#">
+          <a role="button">
             <i className="fas fa-briefcase"></i>Work
           </a>
         </li>
@@ -32,7 +32,7 @@ class DashboardNav extends Component {
           <span>
             <i className="fas fa-play"></i>
           </span>
-          <a href="#">
+          <a role="button">
             <i className="fas fa-handshake"></i>Errands
           </a>
         </li>

@@ -38,6 +38,8 @@ class App extends Component {
   }
   toggleDashBoard = () => {
     $(".dashboard").toggleClass("show-dashboard");
+    $(".toggle-icon").toggleClass("fa-plus");
+    $(".toggle-icon").toggleClass("fa-times");
   };
   onToggleForm = () => {
     if (this.state.isDisplayForm && this.state.taskEditing !== null) {
@@ -104,6 +106,7 @@ class App extends Component {
     this.setState({
       taskEditing: tasks[index],
     });
+    this.toggleDashBoard();
     this.onShowForm();
   };
   onDelete = (id) => {
@@ -207,7 +210,7 @@ class App extends Component {
           id="toggle-show-dashboard"
           onClick={this.toggleDashBoard}
         >
-          <i className="fas fa-plus"></i>
+          <i className="toggle-icon fas fa-plus"></i>
         </a>
       </div>
     );
