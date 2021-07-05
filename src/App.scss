@@ -320,64 +320,17 @@ body {
             }
             &__sort {
                 margin-left: 4rem;
-                .dropdown {
-                    position: relative;
-                    button {
-                        height: 39px;
-                        width: 100px;
-                        background-color: #fff;
-                        border: 1px solid var(--color-input-border);
-                        color: var(--color-btn-secondary-text);
-                        font-size: 1.5rem;
-                        font-weight: 400;
-                        border-radius: 0.3rem;
-                        padding: 1rem 1.5rem;
-                        cursor: pointer;
-                        @include flex(center, center);
-                        i {
-                            display: inline-block;
-                            margin-left: 1rem;
-                            transform: translateY(-18%);
-                        }
-                        &:focus {
-                            border-color: #0969da;
-                            box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
-                        }
-                        &:focus ~ .dropdown-menu {
-                            opacity: 1;
-                            visibility: visible;
-                        }
-                    }
-                    &-menu {
-                        opacity: 0;
-                        visibility: hidden;
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        width: 100%;
-                        background-color: #fff;
-                        border: 1px solid var(--color-input-border);
-                        li {
-                            padding: 1rem;
-                            &.sort_selected {
-                                background-color: rgba(9, 105, 218, 0.3);
-                            }
-                            a {
-                                display: block;
-                                color: var(--color-btn-secondary-text);
-                                font-size: 1.5rem;
-                                font-weight: 400;
-                                cursor: pointer;
-                            }
-                            &.divider {
-                                padding: 0 !important;
-                                width: 100%;
-                                height: 1px;
-                                background-color: #d0d7de;
-                            }
-                        }
-
-                    }
+                .dropdown-menu {
+                    height: 39px;
+                    width: 10rem;
+                    outline: none;
+                    line-height: 39px;
+                    background-color: #fff;
+                    border: 1px solid var(--color-input-border);
+                    color: var(--color-btn-secondary-text);
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                    padding: 1rem;
                 }
             }
         }

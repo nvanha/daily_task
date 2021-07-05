@@ -461,84 +461,17 @@ body {
   margin-left: 4rem;
 }
 
-.content .header-control__sort .dropdown {
-  position: relative;
-}
-
-.content .header-control__sort .dropdown button {
-  height: 39px;
-  width: 100px;
-  background-color: #fff;
-  border: 1px solid var(--color-input-border);
-  color: var(--color-btn-secondary-text);
-  font-size: 1.5rem;
-  font-weight: 400;
-  border-radius: 0.3rem;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-}
-
-.content .header-control__sort .dropdown button i {
-  display: inline-block;
-  margin-left: 1rem;
-  -webkit-transform: translateY(-18%);
-          transform: translateY(-18%);
-}
-
-.content .header-control__sort .dropdown button:focus {
-  border-color: #0969da;
-  -webkit-box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
-          box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
-}
-
-.content .header-control__sort .dropdown button:focus ~ .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-}
-
 .content .header-control__sort .dropdown-menu {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
+  height: 39px;
+  width: 10rem;
+  outline: none;
+  line-height: 39px;
   background-color: #fff;
   border: 1px solid var(--color-input-border);
-}
-
-.content .header-control__sort .dropdown-menu li {
-  padding: 1rem;
-}
-
-.content .header-control__sort .dropdown-menu li.sort_selected {
-  background-color: rgba(9, 105, 218, 0.3);
-}
-
-.content .header-control__sort .dropdown-menu li a {
-  display: block;
   color: var(--color-btn-secondary-text);
   font-size: 1.5rem;
   font-weight: 400;
-  cursor: pointer;
-}
-
-.content .header-control__sort .dropdown-menu li.divider {
-  padding: 0 !important;
-  width: 100%;
-  height: 1px;
-  background-color: #d0d7de;
+  padding: 1rem;
 }
 
 .content .main {
