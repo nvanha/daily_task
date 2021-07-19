@@ -1,72 +1,68 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../actions/index";
 
 class DashboardTaskForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: "",
-      name: "",
-      status: false,
-    };
-  }
   componentDidMount() {
-    if (this.props.taskEditing) {
+    if (this.props.itemEditing && this.props.itemEditing.id !== null) {
       this.setState({
-        id: this.props.taskEditing.id,
-        name: this.props.taskEditing.name,
-        status: this.props.taskEditing.status,
+        id: this.props.itemEditing.id,
+        name: this.props.itemEditing.name,
+        category: this.props.itemEditing.category,
+        day: this.props.itemEditing.day,
+        status: this.props.itemEditing.status,
       });
+    } else {
+      this.onClear();
     }
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps && nextProps.taskEditing) {
+    if (nextProps && nextProps.itemEditing) {
       this.setState({
-        id: nextProps.taskEditing.id,
-        name: nextProps.taskEditing.name,
-        status: nextProps.taskEditing.status,
+        id: nextProps.itemEditing.id,
+        name: nextProps.itemEditing.name,
+        category: nextProps.itemEditing.category,
+        day: nextProps.itemEditing.day,
+        status: nextProps.itemEditing.status,
       });
-    } else if (nextProps && nextProps.taskEditing === null) {
-      this.setState({
-        id: "",
-        name: "",
-        status: false,
-      });
+    } else {
+      this.onClear();
     }
   }
   onChange = (event) => {
-    var target = event.target;
-    var name = target.name;
-    var value = target.value;
-    if (name === "status") {
-      value = target.value === "true" ? true : false;
-    }
+    let target = event.target;
+    let name = target.name;
+    let value = target.value;
     this.setState({
       [name]: value,
     });
   };
   onClear = () => {
-    this.setState({
+    this.props.onClearTask({
       id: "",
       name: "",
+      category: "personal",
+      day: "0",
       status: false,
     });
-    this.props.onClear();
   };
   onCloseForm = () => {
     this.props.onCloseForm();
   };
   onSubmit = (event) => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
+    this.props.onSaveTask(this.state);
     this.onClear();
     this.onCloseForm();
+    this.props.toggleDashBoard();
   };
   render() {
-    var { id } = this.state;
-    return (
+    const { id } = this.props.itemEditing;
+    return this.props.isDisplayForm ? (
       <div className="taskform">
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
+            <label>New Task</label>
             <input
               type="text"
               placeholder="Write a new task"
@@ -74,13 +70,45 @@ class DashboardTaskForm extends Component {
               value={this.state.name}
               onChange={this.onChange}
             />
+            <label>Category</label>
+            <select
+              name="category"
+              value={this.state.category}
+              onChange={this.onChange}
+              className="category"
+            >
+              <option value="personal">Personal</option>
+              <option value="study">Study</option>
+              <option value="work">Work</option>
+              <option value="errands">Errands</option>
+            </select>
+            <label>
+              <span>Status: </span>
+              <span>Day: </span>
+            </label>
             <select
               name="status"
               value={this.state.status}
               onChange={this.onChange}
+              className="status"
             >
-              <option value={false}>Active</option>
+              <option value={false}>Pending</option>
               <option value={true}>Done</option>
+            </select>
+            <select
+              name="day"
+              value={this.state.day}
+              onChange={this.onChange}
+              className="day"
+            >
+              <option value={0}>Sunday</option>
+              <option value={1}>Monday</option>
+              <option value={2}>Tuesday</option>
+              <option value={3}>Wednesday</option>
+              <option value={4}>Thursday</option>
+              <option value={5}>Friday</option>
+              <option value={6}>Saturday</option>
+              <option value={7}>Everyday</option>
             </select>
           </div>
           <div className="form-group">
@@ -91,8 +119,31 @@ class DashboardTaskForm extends Component {
           </div>
         </form>
       </div>
+    ) : (
+      ""
     );
   }
 }
 
-export default DashboardTaskForm;
+const mapStateToProps = (state) => {
+  return {
+    isDisplayForm: state.isDisplayForm,
+    itemEditing: state.itemEditing,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSaveTask: (task) => {
+      dispatch(actions.saveTask(task));
+    },
+    onCloseForm: () => {
+      dispatch(actions.closeForm());
+    },
+    onClearTask: (task) => {
+      dispatch(actions.editTask(task));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardTaskForm);

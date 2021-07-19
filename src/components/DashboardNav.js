@@ -8,33 +8,9 @@ class DashboardNav extends Component {
           <span>
             <i className="fas fa-play"></i>
           </span>
-          <a role="button">
+          <p role="button">
             <i className="fas fa-check"></i>Daily Task
-          </a>
-        </li>
-        <li className="dashboard-item">
-          <span>
-            <i className="fas fa-play"></i>
-          </span>
-          <a role="button">
-            <i className="fas fa-user-clock"></i>Personal
-          </a>
-        </li>
-        <li className="dashboard-item">
-          <span>
-            <i className="fas fa-play"></i>
-          </span>
-          <a role="button">
-            <i className="fas fa-briefcase"></i>Work
-          </a>
-        </li>
-        <li className="dashboard-item">
-          <span>
-            <i className="fas fa-play"></i>
-          </span>
-          <a role="button">
-            <i className="fas fa-handshake"></i>Errands
-          </a>
+          </p>
         </li>
       </ul>
     );

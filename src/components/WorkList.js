@@ -1,18 +1,29 @@
 import React, { Component } from "react";
 import WorkItem from "./WorkItem";
+import { connect } from "react-redux";
 
 class WorkList extends Component {
-  onUpdateStatus;
   render() {
-    var { tasks } = this.props;
-    var elmTasks = tasks.map((task) => {
+    let { tasks } = this.props;
+    const { keyword, filter } = this.props;
+    if (keyword) {
+      tasks = tasks.filter((task) => {
+        return task.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
+      });
+    }
+    tasks = tasks.filter((task) => {
+      if (filter === -1) {
+        return task;
+      } else {
+        return task.status === (filter === 0 ? true : false);
+      }
+    });
+    const elmTasks = tasks.map((task) => {
       return (
         <WorkItem
           key={task.id}
           task={task}
-          onUpdateStatus={this.props.onUpdateStatus}
-          onDelete={this.props.onDelete}
-          onUpdate={this.props.onUpdate}
+          toggleDashBoard={this.props.toggleDashBoard}
         />
       );
     });
@@ -20,4 +31,12 @@ class WorkList extends Component {
   }
 }
 
-export default WorkList;
+const mapStateToProps = (state) => {
+  return {
+    tasks: state.tasks,
+    keyword: state.searchTask,
+    filter: state.filterTask,
+  };
+};
+
+export default connect(mapStateToProps, null)(WorkList);
