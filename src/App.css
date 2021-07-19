@@ -226,10 +226,13 @@ body {
   width: 100%;
   outline: none;
   padding: 1.2rem 1rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 400;
   border: 1px solid var(--color-input-border);
-  background-color: var(--color-input-bg);
+  background-color: #fff;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   color: var(--color-text-primary);
   -webkit-box-shadow: inset 0 1px 0 rgba(208, 215, 222, 0.2);
           box-shadow: inset 0 1px 0 rgba(208, 215, 222, 0.2);
@@ -256,10 +259,10 @@ body {
      -moz-appearance: none;
           appearance: none;
   outline: none;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 400;
   border: 1px solid var(--color-input-border);
-  background-color: var(--color-input-bg);
+  background-color: #fff;
   color: var(--color-text-primary);
   cursor: pointer;
   padding-left: 0.8rem;
@@ -278,11 +281,11 @@ body {
 }
 
 .dashboard .dashboard-add-work .taskform .form-group select.status {
-  width: 30%;
+  width: 40%;
 }
 
 .dashboard .dashboard-add-work .taskform .form-group select.day {
-  width: 70%;
+  width: 60%;
 }
 
 .dashboard .dashboard-add-work .taskform .form-group button {
@@ -347,11 +350,11 @@ body {
 }
 
 .dashboard .dashboard-add-work .taskform .form-group label:nth-child(5) span:nth-child(1) {
-  width: 30%;
+  width: 40%;
 }
 
 .dashboard .dashboard-add-work .taskform .form-group label:nth-child(5) span:nth-child(2) {
-  width: 70%;
+  width: 60%;
   padding-left: 0.8rem;
 }
 
@@ -466,6 +469,9 @@ body {
 
 .content .header-control__search input[type=text] {
   background-color: #fff;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 1px solid var(--color-input-border);
   border-right: 0px !important;
   color: var(--color-text-primary);
